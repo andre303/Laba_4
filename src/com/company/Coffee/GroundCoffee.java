@@ -2,21 +2,22 @@ package com.company.Coffee;
 
 import java.util.Arrays;
 
-public class InstantCoffee implements Coffee  {
+public class GroundCoffee implements Coffee {
     private final String name;
     private final int price;
-    private final CoffeeType type = CoffeeType.INSTANT;
+    private final CoffeeType type = CoffeeType.GROUND;
     private final PackageType packageType;
-    public InstantCoffee(PackageType packageType){
+
+    public GroundCoffee(PackageType packageType){
         this.packageType = packageType;
-        int priceMultiplier = 1;
+        int priceMultiplier = 0;
         if(packageType == PackageType.JAR)
-            priceMultiplier += 1;
+            priceMultiplier = 1;
         int index = (int)(Math.random()*names.length);
         name = names[ index ];
-        price = prices[ index ] * priceMultiplier;
+        price = prices[ index ] + priceMultiplier;
     }
-    public InstantCoffee(PackageType packageType, String name){
+    public GroundCoffee(PackageType packageType, String name){
         int index = Arrays.asList(names).indexOf(name);
         if(index == -1){
             //logger exception
@@ -24,7 +25,7 @@ public class InstantCoffee implements Coffee  {
         this.packageType = packageType;
         int priceMultiplier = 0;
         if(packageType == PackageType.JAR)
-            priceMultiplier = 1;
+            priceMultiplier += 1;
         this.name = names[ index ];
         price = prices[ index ] + priceMultiplier;
 

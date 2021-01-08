@@ -1,34 +1,62 @@
 package com.company.Van;
 
-import com.company.Coffee.Coffee;
 
 import java.util.ArrayList;
 
 
 public class Van {
     ArrayList<UnitOfGoods> goods;
-    int volume = 1000;
+    private int volume;
+
+
+    public int getVolume(){
+        return volume;
+    }
+
     public Van(int volume){
+        this.volume = volume;
         goods = new ArrayList<UnitOfGoods>();
     }
-    public Van(ArrayList<UnitOfGoods> goods){
+
+    public Van(int volume, ArrayList<UnitOfGoods> goods){
+        this.volume = volume;
         this.goods = goods;
     }
-    public void addGoods(Coffee item,int weight){
-     goods.add(new UnitOfGoods(item,weight));
-    }
+
     public void addGoods(ArrayList<UnitOfGoods> goods){
-        for (UnitOfGoods unit:goods) {
-            this.goods.add(unit);
+        int volume = 0;
+        for (UnitOfGoods unit : goods) {
+            volume += unit.getVolume();
+        }
+        if (getFullVolume() + volume <= this.volume) {
+            this.goods.addAll(goods);
         }
     }
+
     public void addGoods(UnitOfGoods unit){
-        goods.add(unit);
+        if(getFullVolume()+unit.getVolume()  <= volume)
+            goods.add(unit);
     }
+
     public ArrayList<UnitOfGoods>  getGoods(){
         return goods;
+    }
+    public int getFullPrice(){
+        int price = 0;
+        for (UnitOfGoods unit : goods) {
+            price += unit.getFullPrice();
+        }
+        return price;
+    }
+    public int getFullVolume(){
+        int Volume = 0;
+        for (UnitOfGoods unit : goods) {
+            Volume += unit.getVolume();
+        }
+        return Volume;
     }
     public void setGoods(ArrayList<UnitOfGoods> goods){
         this.goods = goods;
     }
+
 }
