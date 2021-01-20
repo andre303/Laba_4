@@ -13,15 +13,15 @@ public class GoodsFinder implements Command {
         this.goods = new ArrayList<>(goods);
     }
 
-    private boolean checkIf(boolean[] rules, UnitOfGoods good, CoffeeType type, int price, String name){
-        if(rules[0]){
+    private boolean checkIf (boolean[] rules, UnitOfGoods good, CoffeeType type, int price, String name){
+        if( rules[0] ){
             if(good.getCoffee().getType() != type) return false;
         }
-        if(rules[1]){
-            if(good.getCoffee().getPrice() > price) return false;
+        if ( rules[1] ) {
+            if ( good.getCoffee().getPrice() > price ) return false;
         }
-        if(rules[2]){
-            if(!good.getCoffee().getName().toUpperCase().equals(name.toUpperCase())) return false;
+        if ( rules[2] ){
+            return good.getCoffee().getName().toUpperCase().equals(name.toUpperCase());
         }
         return true;
     }
@@ -42,9 +42,9 @@ public class GoodsFinder implements Command {
     private boolean[] getChoice(Scanner in){
         boolean[] rules = {false,false,false};
         int choice;
-        for (int i = 0; i < 3; i++){
+        for ( int i = 0; i < 3; i++ ){
             choice = in.nextInt();
-            if(choice > 0 && choice <= 3){
+            if ( choice > 0 && choice <= 3 ){
                 rules[choice - 1] = true;
             }
             else{
@@ -63,19 +63,19 @@ public class GoodsFinder implements Command {
         String name = "";
         System.out.println("Виберіть бажані критерії:\n1)Тип кави\n2)Ціна\n3)Марка кави\n0)Кінець вибору");
         rules = getChoice(in);
-        if(rules[0]) {
+        if ( rules[0] ) {
             type = getCoffeeType(in);
         }
-        if(rules[1]) {
+        if ( rules[1] ) {
             System.out.println("Введіть ціну менше якої бажаєте:");
             price = in.nextInt();
         }
-        if(rules[2]){
+        if ( rules[2] ){
             System.out.println("Введіть бажану марку кави:");
             name = in.next();
         }
         for (UnitOfGoods o:goods) {
-            if(checkIf(rules, o, type, price,name)){
+            if ( checkIf(rules, o, type, price,name ) ) {
                 System.out.println(o.toString());
                 result.add(o);
             }

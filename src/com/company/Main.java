@@ -10,15 +10,6 @@
 package com.company;
 
 public class Main {
-    /**
-     * Правки для лаби
-     * (+) Добавити масиви для різних типів кави і заповнювати з них
-     * (+)Каву на різні класи розкласти
-     * (+)Команду без масива зробити, або перевірити щоб одинакові результати команд не закидались в нього
-     * (+) Зробити окремий клас  Run
-     *
-     * @param args
-     */
     public static void main(String[] args) {
        CoffeeVan coffeeVan = new CoffeeVan();
        coffeeVan.run();

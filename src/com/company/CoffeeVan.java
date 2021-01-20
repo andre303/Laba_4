@@ -18,7 +18,7 @@ public class CoffeeVan {
                 "0)Вийти з програми");
     }
 
-    public void Menu(Scanner in, Van van, CommandExecutor goodsCommands, int choice) {
+    public void Menu (Scanner in, Van van, CommandExecutor goodsCommands, int choice) {
         switch (choice) {
             case 1: {
                 goodsCommands.executeCommand(new GoodsSort(van.getGoods()));

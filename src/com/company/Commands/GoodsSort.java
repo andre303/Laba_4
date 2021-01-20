@@ -11,9 +11,9 @@ public class GoodsSort implements Command {
     }
     @Override
     public ArrayList<UnitOfGoods> execute() {
-        Collections.sort(goods);
+        Collections.sort( goods );
         for(UnitOfGoods unit: goods){
-            System.out.println(unit.toString());
+            System.out.println( unit.toString() );
         }
         return goods;
     }

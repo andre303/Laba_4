@@ -31,20 +31,20 @@ public class VanFiller {
         ArrayList<UnitOfGoods> goods = new ArrayList<>();
         Coffee coffee;
 
-        for(int i = 0; i < units; i++){
+        for (int i = 0; i < units; i++){
             coffee = createCoffee(i, type, units);
-            if(coffee.getPrice()*(volume/ units) < price/ units){
+            if (coffee.getPrice()*(volume/ units) < price/ units){
                 goods.add( new UnitOfGoods( coffee, volume/ units));
             }
-            else{
+            else {
                 int subtract = 1;
-                while(true){
-                    if( (volume/ units - subtract) <= 0 ) {
+                while (true){
+                    if ( (volume/ units - subtract) <= 0 ) {
                         logger.log(Level.WARNING, "Van was not filled, to low volume/budget");
                         return null;
 
                     }
-                    if(coffee.getPrice()*(volume/ units - subtract) < price/ units){
+                    if (coffee.getPrice()*(volume/ units - subtract) < price/ units){
                         goods.add( new UnitOfGoods( coffee, (volume/ units - subtract)));
                         break;
                     }

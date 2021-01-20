@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class Van {
     private static final Logger logger = Logger.getLogger("log");
     ArrayList<UnitOfGoods> goods;
-    private int volume;
+    private final int volume;
 
 
     public int getVolume(){
@@ -37,18 +37,18 @@ public class Van {
             this.goods.addAll(goods);
             logger.log(Level.INFO,"Goods was added");
         }
-        else{
+        else {
             logger.log(Level.WARNING,"Volume out of bounds");
         }
     }
 
     public void addGoods(UnitOfGoods unit){
-        if(getFullVolume()+unit.getVolume()  <= volume)
+        if (getFullVolume()+unit.getVolume()  <= volume)
         {
             goods.add(unit);
             logger.log(Level.INFO,"Goods was added");
         }
-        else{
+        else {
             logger.log(Level.WARNING,"Volume out of bounds");
         }
     }

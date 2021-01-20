@@ -15,20 +15,20 @@ public class GroundCoffee implements Coffee {
     public GroundCoffee(PackageType packageType){
         this.packageType = packageType;
         int priceMultiplier = 0;
-        if(packageType == PackageType.JAR)
+        if ( packageType == PackageType.JAR )
             priceMultiplier = 1;
-        int index = (int)(Math.random()*names.length);
+        int index = ( int ) ( Math.random()*names.length );
         name = names[ index ];
         price = prices[ index ] + priceMultiplier;
     }
     public GroundCoffee(PackageType packageType, String name){
-        int index = Arrays.asList(names).indexOf(name);
-        if(index == -1){
+        int index = Arrays.asList( names ).indexOf( name );
+        if ( index == -1 ){
             logger.log(Level.WARNING, "Coffe wasn't created, expected coffee type is not in use");
         }
         this.packageType = packageType;
         int priceMultiplier = 0;
-        if(packageType == PackageType.JAR)
+        if ( packageType == PackageType.JAR )
             priceMultiplier += 1;
         this.name = names[ index ];
         price = prices[ index ] + priceMultiplier;

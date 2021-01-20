@@ -10,8 +10,8 @@ public class GoodsPrinter implements Command {
     }
     @Override
     public ArrayList<UnitOfGoods> execute() {
-        for(UnitOfGoods unit: goods){
-            System.out.println(unit.toString());
+        for ( UnitOfGoods unit: goods ){
+            System.out.println( unit.toString() );
         }
         return goods;
     }

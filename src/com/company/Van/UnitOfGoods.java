@@ -3,8 +3,8 @@ package com.company.Van;
 import com.company.Coffee.Coffee;
 
 public class UnitOfGoods implements Comparable<UnitOfGoods> {
-    private Coffee coffee;
-    private int volume;
+    private final Coffee coffee;
+    private final int volume;
     public UnitOfGoods(Coffee coffee,int volume){
         this.coffee = coffee;
         this.volume = volume;
