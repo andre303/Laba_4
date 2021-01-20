@@ -1,8 +1,12 @@
 package com.company.Coffee;
 
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BeansCoffee implements Coffee {
+    private static final Logger logger = Logger.getLogger("log");
+
     private final String name;
     private final int price;
     private final CoffeeType type = CoffeeType.BEANS;
@@ -21,7 +25,7 @@ public class BeansCoffee implements Coffee {
     public BeansCoffee(PackageType packageType, String name){
         int index = Arrays.asList(names).indexOf(name);
         if(index == -1){
-            //logger exception
+            logger.log(Level.WARNING, "Coffe wasn't created, expected coffee type is not in use");
         }
         this.packageType = packageType;
         int priceMultiplier = 0;

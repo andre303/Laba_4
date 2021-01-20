@@ -19,12 +19,9 @@ class GoodsSortTest {
     @Test
     void execute() {
         ArrayList<UnitOfGoods> goods = new ArrayList<>();
-        Coffee coffee = new InstantCoffee(PackageType.JAR, Coffee.names[10]);
-        goods.add(new UnitOfGoods(coffee, 40));
-         coffee = new BeansCoffee(PackageType.JAR, Coffee.names[10]);
-        goods.add(new UnitOfGoods(coffee, 80));
-        coffee = new BeansCoffee(PackageType.JAR, Coffee.names[10]);
-        goods.add(new UnitOfGoods(coffee, 60));
+        for (int i : new int[]{40,80, 60}) {
+            goods.add(new UnitOfGoods(new BeansCoffee(PackageType.JAR, Coffee.names[10]), i));
+        }
         GoodsSort goodsSort = new GoodsSort(goods);
         Collections.swap(goods,1,0);
         Collections.swap(goods,1,2);
